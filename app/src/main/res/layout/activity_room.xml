@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".FcrUISceneActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:id="@+id/teacher_video_view"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginRight="12dp"
+            android:background="#999" />
+
+        <FrameLayout
+            android:id="@+id/video_view"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="#999" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="100dp">
+
+            <Button
+                android:id="@+id/btn_enable_waiting_room"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="enable_waiting_room"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_join_room"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="join room"
+                android:textAllCaps="false" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_user_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="user count: " />
+
+                <TextView
+                    android:id="@+id/tv_stream_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="stream count: " />
+
+                <Button
+                    android:id="@+id/btn_send_peer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:text="sendCorePeerMessage"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#999"
+                android:gravity="center"
+                android:text="Test FcrMobileMediaControl"
+                android:textColor="#000000" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/box_video"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:checked="true"
+                    android:text="Open Video" />
+
+                <CheckBox
+                    android:id="@+id/box_audio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Open Audio" />
+
+                <CheckBox
+                    android:id="@+id/box_speaker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Open Speaker" />
+
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/box_set_speaker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="setSpeaker" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/box_publish_video"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:checked="true"
+                    android:text="Publish Video Stream" />
+
+                <CheckBox
+                    android:id="@+id/box_publish_audio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Publish Audio Stream" />
+            </LinearLayout>
+
+            <CheckBox
+                android:id="@+id/box_preview_camera"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="startCameraPreview / stopCameraPreview" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/box_switch_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Switch Camera Position" />
+
+                <TextView
+                    android:id="@+id/text_camera_position"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Camera Position : " />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_audio_output_routing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="audio_output_routing" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/text_camera_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:text="Camera State : " />
+
+                <TextView
+                    android:id="@+id/text_mic_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Mic State : " />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#999"
+                android:gravity="center"
+                android:text="Test VideoEffectEnhancer"
+                android:textColor="#000000" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/box_beauty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:checked="false"
+                    android:text="enableBeauty" />
+
+                <CheckBox
+                    android:id="@+id/box_virtual_background"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="enableVirtualBackground" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#999"
+                android:gravity="center"
+                android:text="Test FcrStreamControl"
+                android:textColor="#000000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="streams:" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_add_streams"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:text="addStream"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_render"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:text="render"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_remove_streams"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="removeStreams"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_set_video_audio_config"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="setVideoAudioConfig"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btn_get_streams"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="getStreams"
+                android:textAllCaps="false" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/box_render_video"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:checked="false"
+                    android:text="renderRemoteVideo" />
+
+                <CheckBox
+                    android:id="@+id/box_play_audio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="playRemoteAudioStream" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_audioRawData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:checked="false"
+                    android:text="audioRawData"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_takeSnapshot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:text="takeSnapshot"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#999"
+                android:gravity="center"
+                android:text="Test FcrRoomControl"
+                android:textColor="#000000" />
+
+            <TextView
+                android:id="@+id/text_room_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="room state:"
+                android:textColor="@android:color/holo_red_dark" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_start_cloud_recording"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:text="startCloudRecording"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_pause_cloud_recording"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="pauseCloudRecording"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_resume_cloud_recording"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:text="resumeCloudRecording"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_stop_cloud_recording"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="stopCloudRecording"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_send_room_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:text="sendRoomMessage"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_room_properties"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="updateRoomProperties"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_start_room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:text="start"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_end_room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:text="end"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_close_room"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="close"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_start_live_streaming"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:text="startLiveStreaming"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_stop_live_streaming"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:text="stopLiveStreaming"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_get_room_properties"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="12dp"
+                android:text="getRoomProperties"
+                android:textAllCaps="false" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#999"
+                android:gravity="center"
+                android:text="Test FcrRoomSessionControl"
+                android:textColor="#000000" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_start_room_session"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:text="startRoomSession"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_stop_room_session"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="stopRoomSession"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_accept_room_session"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:text="acceptRoomSession"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_reject_room_session"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="rejectRoomSession"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#999"
+                android:gravity="center"
+                android:text="Test FcrPeerSessionControl"
+                android:textColor="#000000" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_start_peer_session"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:text="startPeerSession"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_stop_peer_session"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="stopPeerSession"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_accept_peer_session"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:text="acceptPeerSession"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_reject_Peer_session"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="rejectPeerSession"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#999"
+                android:gravity="center"
+                android:text="Test FcrUserControl"
+                android:textColor="#000000" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_get_local_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="12dp"
+                    android:text="getLocalUser"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_get_users"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="getUsers"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_get_user_by_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="getUsersById"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_fetch_user_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="fetchUserList"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_kick_out"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="kickOut"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_update_user_role"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="updateUserRole"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/btn_revoke_host"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="revokeHost"
+                android:textAllCaps="false" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_user_properties"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="getUserProperties"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_increment_properties"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="incrementUserProperties"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/btn_update_user_properties"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="updateUserProperties"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_delete_user_properties"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="deleteUserProperties"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#999"
+                android:gravity="center"
+                android:text="Test FcrRoomConnectorControl"
+                android:textColor="#000000" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_call_pstn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="call pstn"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_call_h323sip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="call h323/sip"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_call_stop"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="stop call"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/btn_get_phone_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="getRoomConnectorPhoneInfo"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_get_ip_info"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="getRoomConnectorIpInfo"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#999"
+                android:gravity="center"
+                android:text="Test FcrPrivilegeControl"
+                android:textColor="#000000" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/btn_get_security"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="getSecurity"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_enable_locked"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="enableLocked"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_allow_security"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="allowSecurity"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>
